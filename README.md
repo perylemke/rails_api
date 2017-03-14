@@ -12,8 +12,9 @@ Este é um diretório de um projeto de uma API padrão criado especialmente para
 - Docker-Compose 1.10.0
 
 ### Links úteis
-[Como instalar o Docker](https://docs.docker.com/engine/installation/linux/ubuntu/)
-[Como instalar o Docker-Compose](https://docs.docker.com/compose/install/)
+
+* [Como instalar o Docker](https://docs.docker.com/engine/installation/linux/ubuntu/)
+* [Como instalar o Docker-Compose](https://docs.docker.com/compose/install/)
 
 ### Como rodar o projeto
 Clone o repositório:
