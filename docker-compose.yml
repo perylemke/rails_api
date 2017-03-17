@@ -20,12 +20,15 @@ services:
     depends_on:
       - 'postgres'
       - 'redis'
-    build: .
+    image: perylemke/railsapi:local
+    entrypoint: ./entrypoint.sh
     container_name: rs01
+    links:
+      - postgres:postgres
     ports:
       - '3000:3000'
     volumes:
-      - '.:/rails_api'
+      - '.:/usr/src/rails_api'
     env_file:
       - '.env'
 
