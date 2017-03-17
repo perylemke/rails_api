@@ -21,14 +21,14 @@ services:
       - 'postgres'
       - 'redis'
     image: perylemke/railsapi:local
-    working_dir: /rails_api
     entrypoint: ./entrypoint.sh
     container_name: rs01
+    links:
+      - postgres:postgres
     ports:
       - '3000:3000'
     volumes:
-      - '.:/rails_api'
-      - .gems:/usr/gems
+      - '.:/usr/src/rails_api'
     env_file:
       - '.env'
 
