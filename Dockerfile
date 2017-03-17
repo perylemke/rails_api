@@ -5,6 +5,10 @@ FROM ruby:2.3-slim
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
      build-essential nodejs libpq-dev
 
+# Diretórios que serão instaladas as gems
+ENV GEM_HOME=/usr/gems
+ENV GEM_PATH=/usr/gems
+
 # Seta nosso path
 ENV INSTALL_PATH /rails_api
 
@@ -13,15 +17,3 @@ RUN mkdir -p $INSTALL_PATH
 
 # Seta o nosso path como o diretório principal
 WORKDIR $INSTALL_PATH
-
-# Copia o nosso Gemfile para dentro do container
-COPY Gemfile Gemfile.lock ./
-
-# Instala nossas Gems
-RUN bundle install
-
-# Copia nosso código para dentro do container
-COPY . .
-
-# Roda nosso servidor
-CMD puma -C config/puma.rb
